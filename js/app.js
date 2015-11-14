@@ -131,12 +131,21 @@ function loadReportPoints(){
 				var distance = reports[i]['Distance'];
 				var category = reports[i]['ReportCategory'];
 				var currenttime = reports[i]['CurrentTime'];
-
-				console.log(time + " - " + currenttime + " - " + getTimeDifferenceString(time, currenttime));
+                
+				var report = {
+                    latitude: latitude,
+                    longitude: longitude,
+                    time: time,
+                    distance: distance,
+                    category: category,
+                    currenttime: currenttime
+                    };
+                
+                console.log(time + " - " + currenttime + " - " + getTimeDifferenceString(time, currenttime));
 
 				$("#reports-list-body").append('<tr><td>' + category + '</td><td>' + getTimeDifferenceString(time, currenttime) + '</td><td>' + (Math.round(distance*100)/100) + 'm</td></tr>');
 
-				createWarning(new google.maps.LatLng(latitude, longitude), category);
+				createWarning(new google.maps.LatLng(latitude, longitude), report.category);
 
 			}
 
