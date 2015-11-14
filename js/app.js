@@ -4,7 +4,7 @@ var currentLon;
 function submitReport(category){
 
 	$.ajax({
-		url: "/lib/submit-report.php", 
+		url: "lib/submit-report.php", 
 		type: "POST",      
 		data: "lat=" + currentLat + "&lon=" + currentLon + "&category=" + category,     
 		cache: false     
@@ -16,7 +16,7 @@ function submitReport(category){
 function loadReportForm(){
 
 	$.ajax({
-		url: "/lib/list-categories.php", 
+		url: "lib/list-categories.php", 
 		type: "POST",  
 		cache: false,
 		success: function(returnraw){                          
@@ -51,7 +51,7 @@ function submitSubscriber(){
 	var email = $("[name='emailinput']").val();
 
 	$.ajax({
-		url: "/lib/submit-subscriber.php", 
+		url: "lib/submit-subscriber.php", 
 		type: "POST",      
 		data: "lat=" + currentLat + "&lon=" + currentLon + "&email=" + email,     
 		cache: false     
@@ -73,7 +73,7 @@ function updateSubscriber(){
 
 	if(document.cookie.indexOf('email=') >= 0){
 		$.ajax({
-			url: "/lib/update-subscriber.php", 
+			url: "lib/update-subscriber.php", 
 			type: "POST",      
 			data: "lat=" + currentLat + "&lon=" + currentLon + "&email=" + getCookie('email'),     
 			cache: false     
@@ -94,7 +94,7 @@ function unsubscribe(){
 	if(document.cookie.indexOf('email=') >= 0){
 		
 		$.ajax({
-			url: "/lib/delete-subscriber.php", 
+			url: "lib/delete-subscriber.php", 
 			type: "POST",      
 			data: "email=" + getCookie('email'),     
 			cache: false     
