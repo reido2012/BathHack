@@ -1,9 +1,12 @@
-function createInfoWindow(type, marker){
+function createInfoWindow(type, targetMarker){
     var infoWindow = new google.maps.InfoWindow({
         content: type
     });
     
-    marker.addListener('click', function() {
-        infoWindow.open(map, marker);
+    google.maps.event.addListener(marker, 'click', function() {
+        if($('.gm-style-iw').length) {
+            $('.gm-style-iw').parent().remove();
+        }
+        infoWindow.open(map, targetMarker);
     });
 }
