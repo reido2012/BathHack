@@ -15,4 +15,6 @@ function showPosition(position) {
     var LATLNG = new google.maps.LatLng(lat, lng);
     
     updateLocZoom(LATLNG, 14);
+    createMarker(LATLNG);
+    createWarning(LATLNG, "TEST");
 }
