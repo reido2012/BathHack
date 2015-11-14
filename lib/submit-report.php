@@ -2,7 +2,7 @@
 
 	require 'database.php';
 	require 'haversine.php';
-	require 'sms-send.php';
+	require 'email-send.php';
 
 
 	$radius = 1;
@@ -22,7 +22,7 @@
 		$distance = haversineDistance($_POST['lat'], $row['LocationLatitude'], $_POST['lon'], $row['LocationLongitude']);
 		if($distance <= $radius){
 
-			send_sms($row["PhoneNumber"], $_POST['category'], $distance);
+			email_sms($row["PhoneNumber"], $_POST['category'], $distance);
 
 		}
 

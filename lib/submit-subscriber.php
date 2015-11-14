@@ -2,9 +2,9 @@
 
 	require 'database.php';
 
-	$query = $db->prepare("INSERT INTO Subscriber (PhoneNumber, LocationLatitude, LocationLongitude) VALUES (:phoneNumber, :latitude, :longitude)");
+	$query = $db->prepare("INSERT INTO Subscriber (Email, LocationLatitude, LocationLongitude) VALUES (:email, :latitude, :longitude)");
 	$query->execute(array(
-		":phoneNumber" => $_POST['phone-number'],
+		":email" => $_POST['email'],
 		":latitude" => $_POST['lat'],
 		":longitude" => $_POST['lon']
 	));

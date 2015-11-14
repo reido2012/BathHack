@@ -2,15 +2,15 @@
 
 	require 'database.php';
 
-	$query = $db->prepare("UPDATE Subscriber SET LocationLatitude=:latitude WHERE PhoneNumber=:phoneNumber");
+	$query = $db->prepare("UPDATE Subscriber SET LocationLatitude=:latitude WHERE email=:email");
 	$query->execute(array(
-		":phoneNumber" => $_POST['phone-number'],
+		":email" => $_POST['email'],
 		":latitude" => $_POST['lat']
 	));
 
-	$query = $db->prepare("UPDATE Subscriber SET LocationLongitude=:longitude WHERE PhoneNumber=:phoneNumber");
+	$query = $db->prepare("UPDATE Subscriber SET LocationLongitude=:longitude WHERE email=:email");
 	$query->execute(array(
-		":phoneNumber" => $_POST['phone-number'],
+		":email" => $_POST['email'],
 		":longitude" => $_POST['lon']
 	));
 
