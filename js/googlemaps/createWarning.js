@@ -14,6 +14,6 @@ function createWarning(location, report) {
         icon: image
     });
     
-    createInfoWindow(report.category, marker);
+    createInfoWindow(report, marker);
     marker.setMap(map);
 }

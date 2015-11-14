@@ -133,6 +133,7 @@ function loadReportPoints(){
 				var currenttime = reports[i]['CurrentTime'];
                 
 				var report = {
+                    title: "Panic! Report",
                     latitude: latitude,
                     longitude: longitude,
                     time: time,
