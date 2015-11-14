@@ -1,0 +1,9 @@
+.notification {
+    color:coral;
+    width: 100%;
+    text-align: center;
+    background-color: azure;
+    font-size: 1.3em;
+    display: block;
+    position: relative;
+}

@@ -2,10 +2,14 @@
 function getLocation() {
     
     if (navigator.geolocation) {
+        var notification = createNotification("Finding Your Location");
+        loadNotification(notification);
         navigator.geolocation.getCurrentPosition(showPosition);
+        //terminateNotification(notification);
     }
 }
-function showPosition(position) {
+function showPosition(position, notification) {
+    
     var lat = position.coords.latitude;
     var lng = position.coords.longitude;
     

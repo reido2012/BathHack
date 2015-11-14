@@ -10,6 +10,7 @@
 
 		<link rel="stylesheet" href="css/bootstrap/bootstrap.less.css" />
 		<link rel="stylesheet" href="css/styles.less.css" />
+        <link rel="stylesheet" href="css/notification.css"/>
 		
 		<script src="js/jquery/jquery-2.1.3.min.js"></script>
 		<script src="js/bootstrap/bootstrap.min.js"></script>
@@ -24,6 +25,11 @@
         <script src="js/googlemaps/createMarker.js"></script>
         <script src="js/googlemaps/createWarning.js"></script>
         <script src="js/googlemaps/getIcon.js"></script>
+        
+        <!-- Notifications -->
+        <script src="js/notifications/loadNotification.js"></script>
+        <script src="js/notifications/createNotification.js"></script>
+        <script src="js/notifications/terminateNotification.js"></script>
 
 	</head>
 	
@@ -41,7 +47,12 @@
 		
 		<div class="container-fluid">
 			
-			<section class="jumbotron">
+            <!-- MAIN LIVE AREA 
+                    MAIN LIVE AREA ************************************************
+                        MAIN LIVE AREA -->
+            
+			<section id='display-area' class="jumbotron">
+                <div id='notification-area'></div>
 				<div id='map-here' style="height:300px;"></div>
 			</section>
 
@@ -133,6 +144,8 @@
         <script type="text/javascript">
             
             var map;
+            
+            var notificationDisplay = document.getElementById('notification-area');
             
             // default London
             var clientLocation = {
