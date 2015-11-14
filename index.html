@@ -97,14 +97,19 @@
 
 					<form name="report" action="php/report-submit.php" method="post">
 
-						<div class="modal-body">
+						<div class="modal-body row">
 
-							<button type="button" class="btn btn-danger btn-lg btn-block">Terrorism</button>
-							<button type="button" class="btn btn-danger btn-lg btn-block">Mass Shooting</button>
-							<button type="button" class="btn btn-danger btn-lg btn-block">Street Fight</button>
-							<button type="button" class="btn btn-danger btn-lg btn-block">Car Accident</button>
-							<button type="button" class="btn btn-danger btn-lg btn-block">Medical Emergency</button>
-							
+							<div class="col-md-6">
+								<button type="button" class="btn btn-danger btn-md btn-block" data-dismiss="modal" data-toggle="modal" data-target="#done-report-modal">Terrorism</button>
+								<button type="button" class="btn btn-danger btn-md btn-block" data-dismiss="modal" data-toggle="modal" data-target="#done-report-modal">Mass Shooting</button>
+								<button type="button" class="btn btn-danger btn-md btn-block" data-dismiss="modal" data-toggle="modal" data-target="#done-report-modal">Street Fight</button>
+							</div>
+
+							<div class="col-md-6">
+								<button type="button" class="btn btn-danger btn-md btn-block" data-dismiss="modal" data-toggle="modal" data-target="#done-report-modal">Car Accident</button>
+								<button type="button" class="btn btn-danger btn-md btn-block" data-dismiss="modal" data-toggle="modal" data-target="#done-report-modal">Medical Emergency</button>
+							</div>
+
 						</div>
 
 						<div class="modal-footer">
@@ -112,6 +117,32 @@
 						</div>
 
 					</form>
+
+				</div>
+			</div>
+		</div>
+
+		<div id="done-report-modal" class="modal fade">
+			<div class="modal-dialog">
+				<div class="modal-content">
+
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+						<h4 class="modal-title">Report</h4>
+					</div>
+
+					<div class="modal-body">
+
+						<p>Your report has been made.</p>
+						<p>Nearby users will be notified.</p>
+
+						<a href="tel:999" class="btn btn-primary btn-md">Call Emergency Services</a>
+
+					</div>
+
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+					</div>
 
 				</div>
 			</div>
@@ -132,10 +163,10 @@
 						<div class="modal-body">
 
 							<div class="form-group">
-    							<label for="inputEmail3" class="col-sm-4 control-label">Phone Number</label>
+    							<label for="inputEmail3" class="col-sm-3 control-label">Phone Number</label>
 							    <div class="input-group col-sm-8">
   									<span class="input-group-addon" id="basic-addon1">+44</span>
-  									<input type="text" class="form-control" placeholder="Username" aria-describedby="basic-addon1">
+  									<input type="text" class="form-control" placeholder="Phone Number" maxlength="11" minlength="11">
 								</div>
   							</div>
 
