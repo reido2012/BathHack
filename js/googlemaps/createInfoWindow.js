@@ -3,7 +3,7 @@ function createInfoWindow(type, targetMarker){
         content: type
     });
     
-    google.maps.event.addListener(marker, 'click', function() {
+    google.maps.event.addListener(targetMarker, 'click', function() {
         if($('.gm-style-iw').length) {
             $('.gm-style-iw').parent().remove();
         }
