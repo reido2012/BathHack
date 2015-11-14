@@ -1,0 +1,16 @@
+body {
+    color: aqua;
+    font-family: Arial;
+    font-size: 4em;
+}
+
+#text {
+    display:table-cell;
+    vertical-align: middle;
+}
+
+#display {
+    display: table;
+    margin: auto;
+    text-align: center;
+}
