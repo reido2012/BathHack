@@ -145,8 +145,18 @@
 		</div>
         
         <script type="text/javascript">
+////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////
             
-            var map;
+            var mapBox = document.getElementById('map-here');
+            var defaltLATLNG = new google.maps.LatLng(51.5072, 0.1275);
+            
+            var mapOptions = {
+                center: defaltLATLNG,
+                zoom: 7
+            };
+            
+            var map = new google.maps.Map(mapBox, mapOptions);
             
             var notificationDisplay = document.getElementById('notification-area');
             
@@ -155,7 +165,7 @@
                 Latitude: 51.5072,
                 Longitude: 0.1275
             };
-            google.maps.event.addDomListener(window, 'load', initializeMap);
+            //google.maps.event.addDomListener(window, 'load', initializeMap);
             
             getLocation();
             
