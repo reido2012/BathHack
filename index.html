@@ -49,6 +49,7 @@
 					
 					<button type="button" class="btn btn-danger btn-lg btn-block" data-toggle="modal" data-target="#report-modal">Panic!</button>
 					<button type="button" class="btn btn-primary btn-lg btn-block" data-toggle="modal" data-target="#subscribe-modal">Subscribe to Alerts</button>
+					<button type="button" class="btn btn-primary btn-lg btn-block" data-toggle="modal" data-target="#unsubscribe-modal">Unsubscribe from Alerts</button>
 
 				</article>
 
@@ -190,12 +191,36 @@
 
 					<div class="modal-header">
 						<button type="button" class="close" data-dismiss="modal">&times;</button>
-						<h4 class="modal-title">Report</h4>
+						<h4 class="modal-title">Subscribe to Alerts</h4>
 					</div>
 
 					<div class="modal-body">
 
 						<p>You have been subscribed to receive SMS notifications of nearby events.</p>
+
+					</div>
+
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+					</div>
+
+				</div>
+			</div>
+		</div>
+
+
+		<div id="unsubscribe-modal" class="modal fade">
+			<div class="modal-dialog">
+				<div class="modal-content">
+
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+						<h4 class="modal-title">Unsubscribe</h4>
+					</div>
+
+					<div class="modal-body">
+
+						<p>You have been unsubscribed from SMS notifications of nearby events.</p>
 
 					</div>
 
