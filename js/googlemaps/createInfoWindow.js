@@ -1,7 +1,7 @@
 function createInfoWindow(report, marker){
-    infoWindow.setContent(report);
     
     marker.addListener('click', function() {
+        infoWindow.setContent(report);
         infoWindow.open(map, marker);
     });
 }
