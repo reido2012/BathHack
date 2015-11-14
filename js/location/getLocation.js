@@ -16,5 +16,4 @@ function showPosition(position) {
     
     updateLocZoom(LATLNG, 14);
     createMarker(LATLNG);
-    createWarning(LATLNG, "TEST");
 }
