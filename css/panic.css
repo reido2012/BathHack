@@ -1,0 +1,17 @@
+#panicArea {
+    display: block;
+    width: 100%;
+}
+
+#panicButton {
+    display: table;
+    background-color: #D9534F;
+    border-radius: 100%;
+    width: 200px;
+    height: 200px;
+    text-align: center;
+    color: white;
+    font-size: 3em;
+    margin: 0 auto;
+    margin-bottom: 25px;
+}
