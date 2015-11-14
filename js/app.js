@@ -130,6 +130,8 @@ function loadReportPoints(){
 				var distance = reports[i]['Distance'];
 				var category = reports[i]['ReportCategory'];
 
+				console.log(reports[i]['ReportID']);
+
 				$("#reports-list-body").append('<tr><td>' + category + '</td><td>' + getTimeDifferenceString(time) + '</td><td>' + distance + 'm</td></tr>');
 
 			}
@@ -144,9 +146,9 @@ function getTimeDifferenceString(time){
     var time = new Date(time).getTime();
     var now = new Date().getTime();
 
-    if(isNaN(datetime)) return "";
+    if(isNaN(time)) return "";
 
-    var differenceMs = now - datetime;
+    var differenceMs = now - time;
    
     var days = Math.floor(differenceMs / 1000 / 60 / (60 * 24));
     var difference = new Date(differenceMs);
