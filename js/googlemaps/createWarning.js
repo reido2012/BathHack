@@ -4,8 +4,9 @@ function createWarning(location, report) {
     
     var image = {
         url: iconURL,
+        size: new google.maps.Size(50, 50),
         origin: new google.maps.Point(0, 0),
-        anchor: new google.maps.Point(25, 59)
+        anchor: new google.maps.Point(25, 50)
     };
     
     var marker = new google.maps.Marker({
