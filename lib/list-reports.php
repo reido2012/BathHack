@@ -9,7 +9,7 @@
 
 	$reports = [];
 
-	$query = $db->query("SELECT ReportID, LocationLatitude, LocationLongitude, Time FROM Report");
+	$query = $db->query("SELECT ReportID, LocationLatitude, LocationLongitude, Time FROM Report LIMIT 15");
 	foreach($query as $row) {
 		
 		$distance = haversineDistance($centreLat, $centreLon, $row["LocationLatitude"], $row["LocationLongitude"]);

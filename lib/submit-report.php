@@ -16,13 +16,13 @@
 	));
 
 
-	$query = $db->query("SELECT PhoneNumber, LocationLatitude, LocationLongitude FROM Subscriber");
+	$query = $db->query("SELECT Email, LocationLatitude, LocationLongitude FROM Subscriber");
 	foreach($query as $row) {
 		
 		$distance = haversineDistance($_POST['lat'], $row['LocationLatitude'], $_POST['lon'], $row['LocationLongitude']);
 		if($distance <= $radius){
 
-			email_sms($row["PhoneNumber"], $_POST['category'], $distance);
+			email_sms($row["Email"], $_POST['category'], $distance);
 
 		}
 
