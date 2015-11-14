@@ -1,6 +1,6 @@
 function createInfoWindow(report, marker){
     
-    var tableStart = "<table><thead></thead><tbody>";
+    var tableStart = "<table class='reportInfoWindow'><thead></thead><tbody>";
     var tableEnd = "</tbody></table>";
     
     var title = "<tr><td colspan='2'>" + report.title + "</td></tr>";
