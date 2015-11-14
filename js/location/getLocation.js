@@ -16,4 +16,8 @@ function showPosition(position) {
     
     updateLocZoom(LATLNG, 14);
     createMarker(LATLNG);
+
+    currentLat = lat;
+    currentLon = lon;
+
 }
