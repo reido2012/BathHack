@@ -1,0 +1,110 @@
+2015-11-09 22:09:52 [138.38.132.63][-][-][warning][yii\debug\Module::checkAccess] Access to debugger is denied due to IP address restriction. The requesting IP address is 138.38.132.63
+    in /Users/Jamie/Sites/BathHack/Team_win/views/layouts/main.php:70
+    in /Users/Jamie/Sites/BathHack/Team_win/controllers/SiteController.php:52
+2015-11-09 22:09:52 [138.38.132.63][-][-][info][application] $_SERVER = [
+    'HTTP_HOST' => '138.38.132.63'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-us'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_1) AppleWebKit/601.2.7 (KHTML, like Gecko) Version/9.0.1 Safari/601.2.7'
+    'PATH' => '/usr/bin:/bin:/usr/sbin:/sbin'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache/2.4.16 (Unix) PHP/5.5.29'
+    'SERVER_NAME' => '138.38.132.63'
+    'SERVER_ADDR' => '138.38.132.63'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '138.38.132.63'
+    'DOCUMENT_ROOT' => '/Library/WebServer/Documents'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => '/~Jamie'
+    'CONTEXT_DOCUMENT_ROOT' => '/Users/Jamie/Sites'
+    'SERVER_ADMIN' => 'you@example.com'
+    'SCRIPT_FILENAME' => '/Users/Jamie/Sites/BathHack/Team_win/web/index.php'
+    'REMOTE_PORT' => '52813'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/~Jamie/BathHack/Team_win/web/'
+    'SCRIPT_NAME' => '/~Jamie/BathHack/Team_win/web/index.php'
+    'PHP_SELF' => '/~Jamie/BathHack/Team_win/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1447106992.15
+    'REQUEST_TIME' => 1447106992
+    'argv' => []
+    'argc' => 0
+]
+2015-11-14 11:48:57 [::1][-][0fd2f0a687d47e37861946b58041d115][error][yii\base\InvalidConfigException] exception 'yii\base\InvalidConfigException' with message 'Either GD PHP extension with FreeType support or ImageMagick PHP extension with PNG support is required.' in /Users/Jamie/Sites/BathHack/Team_win/vendor/yiisoft/yii2/captcha/Captcha.php:180
+Stack trace:
+#0 /Users/Jamie/Sites/BathHack/Team_win/vendor/yiisoft/yii2/captcha/Captcha.php(94): yii\captcha\Captcha::checkRequirements()
+#1 /Users/Jamie/Sites/BathHack/Team_win/vendor/yiisoft/yii2/base/Object.php(107): yii\captcha\Captcha->init()
+#2 [internal function]: yii\base\Object->__construct(Array)
+#3 /Users/Jamie/Sites/BathHack/Team_win/vendor/yiisoft/yii2/di/Container.php(372): ReflectionClass->newInstanceArgs(Array)
+#4 /Users/Jamie/Sites/BathHack/Team_win/vendor/yiisoft/yii2/di/Container.php(151): yii\di\Container->build('yii\\captcha\\Cap...', Array, Array)
+#5 /Users/Jamie/Sites/BathHack/Team_win/vendor/yiisoft/yii2/BaseYii.php(344): yii\di\Container->get('yii\\captcha\\Cap...', Array, Array)
+#6 /Users/Jamie/Sites/BathHack/Team_win/vendor/yiisoft/yii2/base/Widget.php(97): yii\BaseYii::createObject(Array)
+#7 /Users/Jamie/Sites/BathHack/Team_win/vendor/yiisoft/yii2/widgets/ActiveField.php(665): yii\base\Widget::widget(Array)
+#8 /Users/Jamie/Sites/BathHack/Team_win/views/site/contact.php(56): yii\widgets\ActiveField->widget('yii\\captcha\\Cap...', Array)
+#9 /Users/Jamie/Sites/BathHack/Team_win/vendor/yiisoft/yii2/base/View.php(325): require('/Users/Jamie/Si...')
+#10 /Users/Jamie/Sites/BathHack/Team_win/vendor/yiisoft/yii2/base/View.php(247): yii\base\View->renderPhpFile('/Users/Jamie/Si...', Array)
+#11 /Users/Jamie/Sites/BathHack/Team_win/vendor/yiisoft/yii2/base/View.php(149): yii\base\View->renderFile('/Users/Jamie/Si...', Array, Object(app\controllers\SiteController))
+#12 /Users/Jamie/Sites/BathHack/Team_win/vendor/yiisoft/yii2/base/Controller.php(371): yii\base\View->render('contact', Array, Object(app\controllers\SiteController))
+#13 /Users/Jamie/Sites/BathHack/Team_win/controllers/SiteController.php(87): yii\base\Controller->render('contact', Array)
+#14 [internal function]: app\controllers\SiteController->actionContact()
+#15 /Users/Jamie/Sites/BathHack/Team_win/vendor/yiisoft/yii2/base/InlineAction.php(55): call_user_func_array(Array, Array)
+#16 /Users/Jamie/Sites/BathHack/Team_win/vendor/yiisoft/yii2/base/Controller.php(151): yii\base\InlineAction->runWithParams(Array)
+#17 /Users/Jamie/Sites/BathHack/Team_win/vendor/yiisoft/yii2/base/Module.php(455): yii\base\Controller->runAction('contact', Array)
+#18 /Users/Jamie/Sites/BathHack/Team_win/vendor/yiisoft/yii2/web/Application.php(84): yii\base\Module->runAction('site/contact', Array)
+#19 /Users/Jamie/Sites/BathHack/Team_win/vendor/yiisoft/yii2/base/Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#20 /Users/Jamie/Sites/BathHack/Team_win/web/index.php(12): yii\base\Application->run()
+#21 {main}
+2015-11-14 11:48:57 [::1][-][0fd2f0a687d47e37861946b58041d115][info][application] $_GET = [
+    'r' => 'site/contact'
+]
+
+$_COOKIE = [
+    '_csrf' => 'dad66ab5385efd44c788cea119e21bd01c87099b97d977e13410273b31f3c89ba:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"X9K2yGavN0fNd-IXoaaWg8MHTuNZdUp3\";}'
+    '_ga' => 'GA1.1.1030820165.1447256909'
+]
+
+$_SESSION = [
+    '__flash' => []
+]
+
+$_SERVER = [
+    'HTTP_HOST' => 'localhost'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_COOKIE' => '_csrf=dad66ab5385efd44c788cea119e21bd01c87099b97d977e13410273b31f3c89ba%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22X9K2yGavN0fNd-IXoaaWg8MHTuNZdUp3%22%3B%7D; _ga=GA1.1.1030820165.1447256909'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_1) AppleWebKit/601.2.7 (KHTML, like Gecko) Version/9.0.1 Safari/601.2.7'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-us'
+    'HTTP_REFERER' => 'http://localhost/~Jamie/BathHack/Team_win/web/index.php?r=site%2Fabout'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'PATH' => '/usr/bin:/bin:/usr/sbin:/sbin'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache/2.4.16 (Unix) PHP/5.5.29'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => '/Library/WebServer/Documents'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => '/~Jamie'
+    'CONTEXT_DOCUMENT_ROOT' => '/Users/Jamie/Sites'
+    'SERVER_ADMIN' => 'you@example.com'
+    'SCRIPT_FILENAME' => '/Users/Jamie/Sites/BathHack/Team_win/web/index.php'
+    'REMOTE_PORT' => '58398'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'r=site%2Fcontact'
+    'REQUEST_URI' => '/~Jamie/BathHack/Team_win/web/index.php?r=site%2Fcontact'
+    'SCRIPT_NAME' => '/~Jamie/BathHack/Team_win/web/index.php'
+    'PHP_SELF' => '/~Jamie/BathHack/Team_win/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1447501737.621
+    'REQUEST_TIME' => 1447501737
+    'argv' => [
+        0 => 'r=site%2Fcontact'
+    ]
+    'argc' => 1
+]
