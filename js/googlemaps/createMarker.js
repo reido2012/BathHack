@@ -5,4 +5,5 @@ function createMarker(location) {
     });
     
     marker.setMap(map);
+    createInfoWindow("you are here", marker);
 }

@@ -1,4 +1,4 @@
-function createWarning(location, type) {
+function createWarning(location, report) {
     
     var iconURL = getIcon(type);
     
@@ -10,9 +10,10 @@ function createWarning(location, type) {
     
     var marker = new google.maps.Marker({
         position: location,
-        title: "Your Location",
+        title: report.category,
         icon: image
     });
     
+    createInfoWindow(report.category, marker);
     marker.setMap(map);
 }
