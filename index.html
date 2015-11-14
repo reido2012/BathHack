@@ -16,7 +16,9 @@
         <script src="js/bootstrap/bootstrap.min.js"></script>
         
         <script src="https://maps.googleapis.com/maps/api/js"></script>
+        <script type="text/javascript" src="http://www.google.com/jsapi"></script>
         <script src="js/googlemaps/initializeMap.js"></script>
+        <script src="js/location/getLocation.js"></script>
 
 	</head>
 	
@@ -43,10 +45,11 @@
 
 			</div>
 		</div>
-
+		
 		<div class="container-fluid">
 			
 			<section class="jumbotron">
+                <div id="location-here"></div>
                 <div id="map-here"></div>
 			</section>
 
@@ -95,6 +98,12 @@
         <script type="text/javascript">
             
             var map;
+            var clientLocation = {
+                Latitude: 51.5072,
+                Longitude: 0.1275
+            };
+            getLocation();
+            //should init map the update;
             google.maps.event.addDomListener(window, 'load', initializeMap);
             
         </script>
@@ -116,6 +125,34 @@
 		    </div>
 		  </div>
 		</div>
+
+
+		<div id="subscribe-modal" class="modal fade">
+			<div class="modal-dialog">
+				<div class="modal-content">
+
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+						<h4 class="modal-title">Report</h4>
+					</div>
+
+					<form>
+
+						<div class="modal-body">
+
+						</div>
+
+						<div class="modal-footer">
+							<button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+							<button type="submit" class="btn btn-danger">Submit Report</button>
+						</div>
+
+					</form>
+
+				</div>
+			</div>
+		</div>
+            
 	</body>
 
 </html>
