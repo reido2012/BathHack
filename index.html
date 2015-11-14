@@ -27,7 +27,7 @@
 
 	</head>
 	
-	<body onload="toggleSubscribeButton(); loadReportForm(); updateSubscriber();">
+	<body onload="toggleSubscribeButton(); loadReportForm();">
 	
 		<div class="navbar">
 			<div class="container-fluid">
@@ -67,17 +67,8 @@
 							</tr>
 						</thead>
 
-						<tbody>
-							<tr>
-								<td>Vehicle Accident</td>
-								<td>5 minutes</td>
-								<td>5 miles</td>
-							</tr>
-							<tr>
-								<td>Street Fight</td>
-								<td>1 hour 30 minutes</td>
-								<td>250 feet</td>
-							</tr>
+						<tbody id="reports-list-body">
+
 						</tbody>
 
 					</table>

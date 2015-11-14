@@ -1,6 +1,8 @@
 var currentLat;
 var currentLon;
 
+var viewRadius = 1000; // in meters
+
 function submitReport(category){
 
 	$.ajax({
@@ -105,5 +107,57 @@ function unsubscribe(){
 	}
 
 	toggleSubscribeButton();
+
+}
+
+
+function loadReportPoints(){
+
+	$.ajax({
+		url: "lib/list-reports.php", 
+		type: "POST",      
+		data: "lat=" + currentLat + "&lon=" + currentLon + "&radius=" + viewRadius,     
+		cache: false,
+		success: function(rawdata){                          
+		
+			var reports = JSON.parse(rawdata);
+
+			for(var i=0; i<reports.length; i++){
+
+				var latitude = reports[i]['LocationLatitude'];
+				var longitude = reports[i]['LocationLongitude'];
+				var time = reports[i]['Time'];
+				var distance = reports[i]['Distance'];
+				var category = reports[i]['ReportCategory'];
+
+				$("#reports-list-body").append('<tr><td>' + category + '</td><td>' + getTimeDifferenceString(time) + '</td><td>' + distance + 'm</td></tr>');
+
+			}
+
+		}           
+	});
+
+}
+
+function getTimeDifferenceString(time){
+
+    var time = new Date(time).getTime();
+    var now = new Date().getTime();
+
+    if(isNaN(datetime)) return "";
+
+    var differenceMs = now - datetime;
+   
+    var days = Math.floor(differenceMs / 1000 / 60 / (60 * 24));
+    var difference = new Date(differenceMs);
+
+    var string = "";
+
+    if(days > 0) string += days + " days ";
+    if(difference.getHours() > 0) string += difference.getHours() + " hours ";
+    if(difference.getMinutes() > 0) string += difference.getMinutes() + " mins ";
+    if(difference.getSeconds() > 0) string += difference.getSeconds() + " secs ";
+
+    return string;
 
 }

@@ -18,6 +18,9 @@ function showPosition(position) {
     createMarker(LATLNG);
 
     currentLat = lat;
-    currentLon = lon;
+    currentLon = lng;
+
+    updateSubscriber();
+    loadReportPoints();
 
 }
