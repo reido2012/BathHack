@@ -14,7 +14,5 @@ function showPosition(position) {
     
     var LATLNG = new google.maps.LatLng(lat, lng);
     
-    
-    map.panTo(LATLNG);
-    map.setZoom(14);
+    updateLocZoom(LATLNG, 14);
 }
