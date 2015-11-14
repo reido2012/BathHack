@@ -4,7 +4,7 @@
 
 	$reportCategories = [];
 
-	$query = $db->prepare("SELECT ReportCategoryName FROM ReportCategory");
+	$query = $db->query("SELECT ReportCategoryName FROM ReportCategory");
 	foreach($query as $row) {
 		array_push($reportCategories, $row["ReportCategoryName"]); 
 	}

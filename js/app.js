@@ -24,7 +24,7 @@ function loadReportForm(){
 			var cats = JSON.parse(returnraw);
 			for(var i=0; i<cats.length; i++){
 				var category = cats[i];
-				$("#category-container").append('<button type="button" class="btn btn-danger btn-md btn-block" data-dismiss="modal" data-toggle="modal" data-target="#done-report-modal" onclick="submitReport(' + category + ');">' + category + '</button> ');
+				$("#category-container").append('<button type="button" class="btn btn-danger btn-md btn-block" data-dismiss="modal" data-toggle="modal" data-target="#done-report-modal" onclick="submitReport(\'' + category + '\');">' + category + '</button> ');
 			}
 
 		}
@@ -35,7 +35,7 @@ function loadReportForm(){
 
 function toggleSubscribeButton(){
 
-	if(document.cookie.contains('email=')){
+	if(document.cookie.indexOf('email=') >= 0){
 		$("#subscribe-btn").hide();
 		$("#unsubscribe-btn").show();
 	}else{
@@ -46,7 +46,9 @@ function toggleSubscribeButton(){
 }
 
 
-function submitSubscriber(email){
+function submitSubscriber(){
+
+	var email = $("[name='emailinput']").val();
 
 	$.ajax({
 		url: "/lib/submit-subscriber.php", 
@@ -56,6 +58,8 @@ function submitSubscriber(email){
 	});
 
 	document.cookie = "email=" + email;
+
+	toggleSubscribeButton();
 
 }
 
@@ -67,7 +71,7 @@ function updateSubscriber(){
   		if (parts.length == 2) return parts.pop().split(";").shift();
 	}
 
-	if(document.cookie.contains('email=')){
+	if(document.cookie.indexOf('email=') >= 0){
 		$.ajax({
 			url: "/lib/update-subscriber.php", 
 			type: "POST",      
@@ -87,13 +91,19 @@ function unsubscribe(){
   		if (parts.length == 2) return parts.pop().split(";").shift();
 	}
 
-	if(document.cookie.contains('email=')){
+	if(document.cookie.indexOf('email=') >= 0){
+		
 		$.ajax({
 			url: "/lib/delete-subscriber.php", 
 			type: "POST",      
 			data: "email=" + getCookie('email'),     
 			cache: false     
 		});
+
+		document.cookie = "email=; expires=Thu, 01 Jan 1970 00:00:00 UTC";
+
 	}
+
+	toggleSubscribeButton();
 
 }
