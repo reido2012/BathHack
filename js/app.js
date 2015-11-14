@@ -145,7 +145,7 @@ function loadReportPoints(){
 
 				$("#reports-list-body").append('<tr><td>' + category + '</td><td>' + getTimeDifferenceString(time, currenttime) + '</td><td>' + (Math.round(distance*100)/100) + 'm</td></tr>');
 
-				createWarning(new google.maps.LatLng(latitude, longitude), report.category);
+				createWarning(new google.maps.LatLng(latitude, longitude), report);
 
 			}
 
