@@ -151,6 +151,10 @@
             var mapBox = document.getElementById('map-here');
             var defaltLATLNG = new google.maps.LatLng(51.5072, 0.1275);
             
+            var infoWindow = new google.maps.InfoWindow({
+                content: ""
+            });
+            
             var mapOptions = {
                 center: defaltLATLNG,
                 zoom: 7

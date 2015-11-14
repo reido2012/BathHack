@@ -1,9 +1,7 @@
-function createInfoWindow(type, targetMarker){
-    var infoWindow = new google.maps.InfoWindow({
-        content: type
-    });
+function createInfoWindow(report, marker){
+    infoWindow.setContent(report);
     
-    google.maps.event.addListener(targetMarker, 'click', function() {
-        infoWindow.open(map, targetMarker);
+    marker.addListener('click', function() {
+        infoWindow.open(map, marker);
     });
 }
