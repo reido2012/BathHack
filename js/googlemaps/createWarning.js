@@ -1,6 +1,6 @@
 function createWarning(location, report) {
     
-    var iconURL = getIcon(type);
+    var iconURL = getIcon(report.category);
     
     var image = {
         url: iconURL,
