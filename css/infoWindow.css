@@ -1,2 +1,13 @@
 .reportInfoWindow {
+    width: 250px;
+}
+
+.reportInfoWindow > thead {
+    font-size: 2em;
+    color: cadetblue;
+}
+
+.reportInfoWindow > tbody > tr > td:first-child {
+    color: darkred;
+    font-weight: bold;
 }

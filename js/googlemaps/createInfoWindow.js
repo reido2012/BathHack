@@ -1,6 +1,8 @@
 function createInfoWindow(report, marker){
     
-    var tableStart = "<table class='reportInfoWindow'><thead></thead><tbody>";
+    var tableStart = "<table class='reportInfoWindow'>";
+    var tableHeadStart = "<thead>";
+    var tableHeadEnd = "</thead><tbody>";
     var tableEnd = "</tbody></table>";
     
     var title = "<tr><td colspan='2'>" + report.title + "</td></tr>";
@@ -11,10 +13,10 @@ function createInfoWindow(report, marker){
     var infoWindowContent;
     
     if (report.title == "you are here") {
-        infoWindowContent = tableStart + title + tableEnd;
+        infoWindowContent = tableStart + tableHeadStart + title + tableHeadEnd + tableEnd;
     }
     else {
-        infoWindowContent = tableStart + title + category + time + distance + tableEnd;
+        infoWindowContent = tableStart + tableHeadStart + title + tableHeadEnd + category + time + distance + tableEnd;
     }
     
     marker.addListener('click', function() {

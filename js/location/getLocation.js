@@ -19,7 +19,6 @@ function showPosition(position) {
     
     updateLocZoom(LATLNG, 14);
     createMarker(LATLNG);
-    createWarning(defaltLATLNG, {title:"fuck off"})
 
     currentLat = lat;
     currentLon = lng;
