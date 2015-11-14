@@ -5,10 +5,9 @@ function getLocation() {
         var notification = createNotification("Finding Your Location");
         loadNotification(notification);
         navigator.geolocation.getCurrentPosition(showPosition);
-        //terminateNotification(notification);
     }
 }
-function showPosition(position, notification) {
+function showPosition(position) {
     
     var lat = position.coords.latitude;
     var lng = position.coords.longitude;
@@ -24,6 +23,7 @@ function showPosition(position, notification) {
     currentLat = lat;
     currentLon = lng;
 
+    terminateNotification();
     updateSubscriber();
     loadReportPoints();
 

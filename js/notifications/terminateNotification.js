@@ -1,3 +1,3 @@
-function terminateNotification(notification) {
-    notificationDisplay.removeChild(notification);
+function terminateNotification() {
+    notificationDisplay.innerHTML = "";
 }
