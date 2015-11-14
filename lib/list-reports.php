@@ -10,7 +10,7 @@
 
 	$reports = [];
 
-	$query = $db->query("SELECT ReportID, LocationLatitude, LocationLongitude, Time, ReportCategory FROM Report ORDER BY Time DESC LIMIT 15");
+	$query = $db->query("SELECT ReportID, LocationLatitude, LocationLongitude, Time, ReportCategory, CURRENT_TIMESTAMP() AS CurrentTime FROM Report ORDER BY Time DESC LIMIT 15");
 	foreach($query as $row) {
 		
 		$distance = haversineDistance($centreLat, $centreLon, $row["LocationLatitude"], $row["LocationLongitude"]);

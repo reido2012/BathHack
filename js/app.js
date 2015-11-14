@@ -121,6 +121,7 @@ function loadReportPoints(){
 		success: function(rawdata){                          
 		
 			var reports = JSON.parse(rawdata);
+    	
 
 			for(var i=0; i<reports.length; i++){
 
@@ -129,22 +130,27 @@ function loadReportPoints(){
 				var time = reports[i]['Time'];
 				var distance = reports[i]['Distance'];
 				var category = reports[i]['ReportCategory'];
+				var currenttime = reports[i]['CurrentTime'];
 
-				console.log(reports[i]['ReportID']);
+				console.log(time + " - " + currenttime + " - " + getTimeDifferenceString(time, currenttime));
 
-				$("#reports-list-body").append('<tr><td>' + category + '</td><td>' + getTimeDifferenceString(time) + '</td><td>' + distance + 'm</td></tr>');
+				$("#reports-list-body").append('<tr><td>' + category + '</td><td>' + getTimeDifferenceString(time, currenttime) + '</td><td>' + (Math.round(distance*100)/100) + 'm</td></tr>');
+
+				createWarning(new google.maps.LatLng(latitude, longitude), category);
 
 			}
+
 
 		}           
 	});
 
 }
 
-function getTimeDifferenceString(time){
 
-    var time = new Date(time).getTime();
-    var now = new Date().getTime();
+function getTimeDifferenceString(time, now){
+
+    var time = new Date(time).getTime();  
+    var now = new Date(now).getTime();
 
     if(isNaN(time)) return "";
 
