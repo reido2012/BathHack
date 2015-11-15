@@ -184,8 +184,14 @@ function getVideo(reportID){
 		type: "POST",      
 		data: "reportid=" + reportID,     
 		cache: false,
-		success: function(url){                          
-			$("#video-url").attr("src", url);               
+		success: function(url){            
+			if(url != ""){              
+				$("#video-url").attr("src", url);
+				$("#video-url").parent().show();
+			}else{
+				$("#video-url").attr("src", "");
+				$("#video-url").parent().hide();
+			}           
 		}           
 	});       
 
