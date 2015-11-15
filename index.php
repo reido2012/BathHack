@@ -8,6 +8,10 @@ $fb = new Facebook\Facebook([
   'default_graph_version' => 'v2.4',
 ]);
 
+require __DIR__.'lib/login.php';
+require __DIR__.'lib/fb-callback.php';
+require __DIR__.'lib/get-fb-cookie.php';
+
 ?>
 <!DOCTYPE html>
 <html>
