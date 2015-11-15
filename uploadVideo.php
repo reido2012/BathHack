@@ -3,9 +3,7 @@
     require 'lib/database.php';
 
     $tablename = "videos";
-    
 
-                echo "Reaches this point";
     try {
 
             $plsDrop = "DROP TABLE IF EXISTS $tablename";
@@ -21,8 +19,7 @@
 
             $db->exec($sql);
 
-
-
+echo var_dump($_POST);
             if(isset($_POST['submit'])) {
                 $name = $_FILES['fileToUpload']['name'];
                 $temp = $_FILES['fileToUpload']['tmp_name'];
@@ -48,8 +45,8 @@
                 }
 
 
-                move_uploaded_file($temp, "./uploaded/".$name);
-                $url = "http://localhost/VideoUploader/uploaded/$name";
+                move_uploaded_file($temp, __DIR__."/uploaded/".$name);
+                $url = "/VideoUploader/uploaded/$name";
 
                 $stmt = ("INSERT INTO $tablename (videoId, videoURL, videoName) VALUES ('','$url', '$name')");
 
