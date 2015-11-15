@@ -26,13 +26,11 @@
 
     try {
 
-            $reportID = $_POST['reportID'];
-
-            $db->exec($sql);
-
-            if(isset($_POST['submit'])) {
+            if(isset($_POST['submit'])){
                 $name = $_FILES['fileToUpload']['name'];
                 $temp = $_FILES['fileToUpload']['tmp_name'];
+
+                $reportID = $_POST['reportID'];
 
                 $message = '';
                 switch( $_FILES['fileToUpload']['error'] ) {
@@ -56,12 +54,17 @@
 
 
                 move_uploaded_file($temp, __DIR__."/uploaded/".$name);
-                $url = "/VideoUploader/uploaded/$name";
+                $url = "uploaded/$name";
 
-                $stmt = ("INSERT INTO videos (videoId, videoURL, videoName, reportID) VALUES ('','$url', '$name', '$reportID')");
+                $query = $db->prepare("INSERT INTO videos (videoURL, videoName, reportID) VALUES (:url, :name, :reportID)");
+                $query->execute(array(
+                    ":url" => $url,
+                    ":name" => $name,
+                    ":reportID" => $reportID
+                ));
 
-                $db -> exec($stmt);
                 echo "<br/>".$name." has been uploaded<br/>";
+
             } 
             else {
                 echo "<br />Please upload a file<br/>";
