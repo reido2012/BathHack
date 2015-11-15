@@ -18,7 +18,6 @@
             displayArea.style.height = String(window.innerHeight -20) + "px";
         });
     </script>
-</html>
 
 <?php
     require 'lib/database.php';
@@ -84,3 +83,5 @@
 ?>
 
 <script>window.location='index.php'</script>
+    
+</html>
