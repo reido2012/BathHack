@@ -1,5 +1,7 @@
 <?php
 
+session_start();
+
 require_once __DIR__ . '/facebook_sdk/autoload.php';
 
 $fb = new Facebook\Facebook([
@@ -7,10 +9,6 @@ $fb = new Facebook\Facebook([
   'app_secret' => 'da51d8e851a7e3a35f68a110bc7d494e',
   'default_graph_version' => 'v2.4',
 ]);
-
-require __DIR__.'lib/login.php';
-require __DIR__.'lib/fb-callback.php';
-require __DIR__.'lib/get-fb-cookie.php';
 
 ?>
 <!DOCTYPE html>
