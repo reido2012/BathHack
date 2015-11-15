@@ -144,6 +144,7 @@ function loadReportPoints(){
                 
 				var report = {
                     title: "Panic! - " + category,
+                    category: category,
                     time: timeDifferenceTable,
                     distance: (Math.round(distance*100)/100) + "m away",
                     };

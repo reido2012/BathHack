@@ -20,6 +20,8 @@ $fb = new Facebook\Facebook([
 		<meta charset="utf-8" />
 
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+        
+        <link rel="shortcut icon" href="img/favicon.png"/>
 
 		<link rel="stylesheet" href="css/bootstrap/bootstrap.less.css" />
 		<link rel="stylesheet" href="css/styles.less.css" />
@@ -46,9 +48,6 @@ $fb = new Facebook\Facebook([
         <script src="js/notifications/loadNotification.js"></script>
         <script src="js/notifications/createNotification.js"></script>
         <script src="js/notifications/terminateNotification.js"></script>
-        
-        <!-- FB -->
-        <script src="js/facebook.js"></script>
 
 	</head>
 	
@@ -62,22 +61,6 @@ $fb = new Facebook\Facebook([
         version    : 'v2.5',
         cookie:true
     });
-      
-      // Now that we've initialized the JavaScript SDK, we call 
-      // FB.getLoginStatus().  This function gets the state of the
-      // person visiting this page and can return one of three states to
-      // the callback you provide.  They can be:
-      //
-      // 1. Logged into your app ('connected')
-      // 2. Logged into Facebook, but not your app ('not_authorized')
-      // 3. Not logged into Facebook and can't tell if they are logged into
-      //    your app or not.
-      //
-      // These three cases are handled in the callback function.
-
-      FB.getLoginStatus(function(response) {
-        statusChangeCallback(response);
-      });
   };
 
   (function(d, s, id){
@@ -88,9 +71,6 @@ $fb = new Facebook\Facebook([
      fjs.parentNode.insertBefore(js, fjs);
    }(document, 'script', 'facebook-jssdk'));
 </script>
-
-<fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
-</fb:login-button>
         
 <div id="status"></div>
 	
@@ -98,17 +78,19 @@ $fb = new Facebook\Facebook([
 			<div class="container-fluid">
 
 				<div class="navbar-header">
-					<a class="navbar-brand" href="/">Don't Panic!</a>
-                    <div
-                      class="fb-like"
-                      data-share="true"
-                      data-width="450"
-                      data-show-faces="true">
-                    </div>
+					<a class="navbar-brand" style="font-size:2em;" href="/BathHack">Don't Panic!</a>
 				</div>
 
 			</div>
 		</div>
+        <div id="like-button-box">
+            <div
+                class="fb-like"
+                data-share="true"
+                data-width="450"
+                data-show-faces="true">
+            </div>
+        </div>
 		
 		<div class="container-fluid">
 			
@@ -223,12 +205,12 @@ $fb = new Facebook\Facebook([
                 content: ""
             });
             
-            var mapOptions = {
+            var MapOptions = {
                 center: defaltLATLNG,
                 zoom: 7
             };
             
-            var map = new google.maps.Map(mapBox, mapOptions);
+            var map = new google.maps.Map(mapBox, MapOptions);
             
             var notificationDisplay = document.getElementById('notification-area');
             
