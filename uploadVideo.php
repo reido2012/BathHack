@@ -26,7 +26,10 @@
 
     try {
 
+
+
             if(isset($_POST['submit'])){
+
                 $name = $_FILES['fileToUpload']['name'];
                 $temp = $_FILES['fileToUpload']['tmp_name'];
 
