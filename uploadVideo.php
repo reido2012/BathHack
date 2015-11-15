@@ -1,5 +1,4 @@
 <?php
-
     require 'lib/database.php';
 
     $tablename = "videos";
@@ -61,5 +60,3 @@ echo var_dump($_POST);
         {
         echo "Connection failed: " . $e->getMessage();
         }
-
-header("location:index.php");
