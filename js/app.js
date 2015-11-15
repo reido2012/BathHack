@@ -10,12 +10,10 @@ function submitReport(category){
 		type: "POST",      
 		data: "lat=" + currentLat + "&lon=" + currentLon + "&category=" + category,     
 		cache: false,
-		success: function(reportID){
-
-			$("#currentReportId").val(reportID);
-
+		success: function(reportid){                       
+			$("#currentReportId").val(reportid);           
 		}   
-	});
+	});   
 
 }
 
