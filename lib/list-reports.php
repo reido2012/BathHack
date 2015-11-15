@@ -19,7 +19,14 @@
 			try{
 				$query = $db->prepare("SELECT videoURL FROM videos WHERE reportID=:reportID LIMIT 1");
 				$query->bindParam(":reportID", $row['ReportID']);
-				list($videoURL) = $query->fetch();
+                
+                $theFetched = $query->fetch();
+                echo var_dump($theFetched);
+                
+				list($videoURL) = $theFetched;
+                
+
+                
 				$row['VideoURL'] = $videoURL;
 			}catch(Exception $e){
   				$row['VideoURL'] = "";
