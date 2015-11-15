@@ -1,6 +1,5 @@
 <?php
 
-function uploadVideo() {
     /*
     $servername = "bathhack.cloudcell.co.uk";
     $username = "bathhackapp";
@@ -69,4 +68,3 @@ function uploadVideo() {
         {
         echo "Connection failed: " . $e->getMessage();
         }
-}
