@@ -1,3 +1,14 @@
+<?php
+
+require_once __DIR__ . '/facebook_sdk/autoload.php';
+
+$fb = new Facebook\Facebook([
+  'app_id' => '904162293013934',
+  'app_secret' => 'da51d8e851a7e3a35f68a110bc7d494e',
+  'default_graph_version' => 'v2.4',
+]);
+
+?>
 <!DOCTYPE html>
 <html>
 
@@ -44,9 +55,10 @@
 <script>
   window.fbAsyncInit = function() {
     FB.init({
-      appId      : '904162293013934',
-      xfbml      : true,
-      version    : 'v2.5'
+        appId      : '904162293013934',
+        xfbml      : true,
+        version    : 'v2.5',
+        cookie:true
     });
       
       // Now that we've initialized the JavaScript SDK, we call 
