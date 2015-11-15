@@ -26,17 +26,6 @@
 
     try {
 
-            $plsDrop = "DROP TABLE IF EXISTS $tablename";
-            $db->exec($plsDrop);
-
-             // sql to create table
-            $sql = "CREATE TABLE $tablename(
-                VIDEO LONGBLOB,
-                videoId INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY, 
-                videoName VARCHAR(255),	
-                videoURL VARCHAR(255) 
-            )";
-
             $db->exec($sql);
 
             if(isset($_POST['submit'])) {
