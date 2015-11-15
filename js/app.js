@@ -11,7 +11,8 @@ function submitReport(category){
 		data: "lat=" + currentLat + "&lon=" + currentLon + "&category=" + category,     
 		cache: false,
 		success: function(reportid){                       
-			$("#currentReportId").val(reportid);           
+			$("#currentReportId").val(reportid);       
+			loadReportPoints();    
 		}   
 	});   
 
