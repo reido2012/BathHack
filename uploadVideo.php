@@ -49,7 +49,7 @@
 
 
                 move_uploaded_file($temp, "./uploaded/".$name);
-                $url = "http://localhost/Video%20Uploader/uploaded/$name";
+                $url = "http://localhost/VideoUploader/uploaded/$name";
 
                 $stmt = ("INSERT INTO $tablename (videoId, videoURL, videoName) VALUES ('','$url', '$name')");
 
