@@ -61,3 +61,5 @@ echo var_dump($_POST);
         {
         echo "Connection failed: " . $e->getMessage();
         }
+
+header("location:index.php");
