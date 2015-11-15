@@ -9,8 +9,13 @@ function submitReport(category){
 		url: "lib/submit-report.php", 
 		type: "POST",      
 		data: "lat=" + currentLat + "&lon=" + currentLon + "&category=" + category,     
-		cache: false     
-	});       
+		cache: false,
+		success: function(reportID){
+
+			$("#currentReportId").val(reportID);
+
+		}   
+	});
 
 }
 
@@ -132,6 +137,7 @@ function loadReportPoints(){
 				var distance = reports[i]['Distance'];
 				var category = reports[i]['ReportCategory'];
 				var currenttime = reports[i]['CurrentTime'];
+				var videourl = reports[i]['VideoURL'];
                 
                 var timeDifferenceTable = getTimeDifferenceTable(time, currenttime);
                 
@@ -140,10 +146,9 @@ function loadReportPoints(){
                     time: timeDifferenceTable,
                     distance: (Math.round(distance*100)/100) + "m away",
                     };
-                
-                console.log(time + " - " + currenttime + " - " + getTimeDifferenceString(time, currenttime));
+               
 
-				$("#reports-list-body").append('<tr><td><a data-toggle="modal" data-target="#videos-modal" onclick="getVideo("' + reportid + '"");">' + category + '</a></td><td>' + getTimeDifferenceString(time, currenttime) + '</td><td>' + (Math.round(distance*100)/100) + 'm</td></tr>');
+				$("#reports-list-body").append('<tr><td><a data-toggle="modal" data-target="#videos-modal" onclick="getVideo("' + videourl + '"");">' + category + '</a></td><td>' + getTimeDifferenceString(time, currenttime) + '</td><td>' + (Math.round(distance*100)/100) + 'm</td></tr>');
 
 				createWarning(new google.maps.LatLng(latitude, longitude), report);
 
@@ -177,23 +182,16 @@ function getTimeDifferenceTable(time, now){
 
 }
 
-function getVideo(reportID){
+function getVideo(videourl){
 
-	$.ajax({
-		url: "lib/list-videos.php", 
-		type: "POST",      
-		data: "reportid=" + reportID,     
-		cache: false,
-		success: function(url){            
-			if(url != ""){              
-				$("#video-url").attr("src", url);
-				$("#video-url").parent().show();
-			}else{
-				$("#video-url").attr("src", "");
-				$("#video-url").parent().hide();
-			}           
-		}           
-	});       
+	if(videourl != "null"){              
+		$("#video-url").attr("src", url);
+		$("#video-url").parent().show();
+	}else{
+		$("#video-url").attr("src", "");
+		$("#video-url").parent().hide();
+	}           
+	          
 
 }
 

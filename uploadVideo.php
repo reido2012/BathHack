@@ -26,6 +26,8 @@
 
     try {
 
+            $reportID = $_POST['reportID'];
+
             $db->exec($sql);
 
             if(isset($_POST['submit'])) {
@@ -56,7 +58,7 @@
                 move_uploaded_file($temp, __DIR__."/uploaded/".$name);
                 $url = "/VideoUploader/uploaded/$name";
 
-                $stmt = ("INSERT INTO $tablename (videoId, videoURL, videoName) VALUES ('','$url', '$name')");
+                $stmt = ("INSERT INTO videos (videoId, videoURL, videoName, reportID) VALUES ('','$url', '$name', '$reportID')");
 
                 $db -> exec($stmt);
                 echo "<br/>".$name." has been uploaded<br/>";

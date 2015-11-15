@@ -183,6 +183,7 @@
 						<a href="tel:999" class="btn btn-primary btn-md">Call Emergency Services</a>
 
 						<form action = "uploadVideo.php" method = "POST" enctype = "multipart/form-data" >
+							<input id="currentReportId" type="hidden" name="reportID" value="" />
 							<input type = "file" name = "fileToUpload" id = "fileToUpload">
 							<input type = "submit" name = "submit" value = "Upload"/>
 						</form>

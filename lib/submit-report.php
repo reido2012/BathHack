@@ -15,6 +15,7 @@
 		":category" => $_POST['category']
 	));
 
+	echo $db->lastInsertId();
 
 	$query = $db->query("SELECT Email, LocationLatitude, LocationLongitude FROM Subscriber");
 	foreach($query as $row) {
