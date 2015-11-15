@@ -1,3 +1,25 @@
+<!doctype html>
+<head>
+    <title>Stuff</title>
+    <link type="text/css" rel="stylesheet" href="styles.css">
+</head>
+<html>
+	<body>
+        <div id="display">
+             <div id="text">Uploading</div>
+        </div>
+	</body>
+    <script type="text/javascript">
+        var displayArea = document.getElementById("display");
+        
+            displayArea.style.height = String(window.innerHeight -20) + "px";
+        
+        window.addEventListener("resize", function(){
+            displayArea.style.height = String(window.innerHeight -20) + "px";
+        });
+    </script>
+</html>
+
 <?php
     require 'lib/database.php';
 
@@ -18,7 +40,6 @@
 
             $db->exec($sql);
 
-echo var_dump($_POST);
             if(isset($_POST['submit'])) {
                 $name = $_FILES['fileToUpload']['name'];
                 $temp = $_FILES['fileToUpload']['tmp_name'];
@@ -60,5 +81,6 @@ echo var_dump($_POST);
         {
         echo "Connection failed: " . $e->getMessage();
         }
+?>
 
-echo "<script>window.location='index.php'</script>";
+<script>window.location='index.php'</script>
