@@ -139,7 +139,7 @@ function loadReportPoints(){
                     latitude: latitude,
                     longitude: longitude,
                     time: timeDifferenceTable,
-                    distance: (Math.round(distance*100)/100) + "m",
+                    distance: (Math.round(distance*100)/100) + "m away",
                     category: category,
                     currenttime: currenttime
                     };
