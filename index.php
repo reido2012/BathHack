@@ -78,11 +78,6 @@
 <fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
 </fb:login-button>
         
-<form action = "uploadVideo.php" method = "POST" enctype = "multipart/form-data" >
-	<input type = "file" name = "fileToUpload" id = "fileToUpload">
-	<input type = "submit" name = "submit" value = "Upload"/>
-</form>
-
 <div id="status"></div>
 	
 		<div class="navbar">
@@ -186,6 +181,11 @@
 						<p>Nearby users will be notified.</p>
 
 						<a href="tel:999" class="btn btn-primary btn-md">Call Emergency Services</a>
+
+						<form action = "uploadVideo.php" method = "POST" enctype = "multipart/form-data" >
+							<input type = "file" name = "fileToUpload" id = "fileToUpload">
+							<input type = "submit" name = "submit" value = "Upload"/>
+						</form>
 
 					</div>
 
