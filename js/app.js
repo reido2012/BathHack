@@ -132,11 +132,13 @@ function loadReportPoints(){
 				var category = reports[i]['ReportCategory'];
 				var currenttime = reports[i]['CurrentTime'];
                 
+                var timeDifference = getTimeDifferenceString(time, currenttime);
+                
 				var report = {
                     title: "Panic! Report",
                     latitude: latitude,
                     longitude: longitude,
-                    time: time,
+                    time: timeDifference,
                     distance: distance,
                     category: category,
                     currenttime: currenttime
