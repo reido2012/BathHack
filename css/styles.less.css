@@ -1,4 +1,9 @@
 .modal-backdrop {
   z-index: -1;
 }
+
+*:focus{
+	outline: none;
+}
+
 /*# sourceMappingURL=styles.less.css.map */
