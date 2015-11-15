@@ -1,4 +1,3 @@
-<?php header("location:index.php"); ?>
 <!DOCTYPE html>
 <html>
 
@@ -83,6 +82,8 @@
 	<input type = "file" name = "fileToUpload" id = "fileToUpload">
 	<input type = "submit" name = "submit" value = "Upload"/>
 </form>
+    
+<?php header("location:index.php"); ?>
 
 <div id="status"></div>
 	
