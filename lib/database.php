@@ -1,4 +1,9 @@
 <?php
 
-	$db = new PDO("mysql:host=localhost;dbname=panic-button", "bathhackapp", "fe2184fe2184");
+    $servername = "bathhack.cloudcell.co.uk";
+	$username = "bathhackapp";
+	$password = "fe2184fe2184";
+	$dbName = "panic-button";
+
+	$db = new PDO("mysql:host=$servername;dbname=$dbName", $username, $password);
 	$db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);

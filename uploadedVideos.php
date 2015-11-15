@@ -1,5 +1,7 @@
-
 <?php
+
+    require 'database.php';
+
 	$tablename = "videos";
 
 	try {
