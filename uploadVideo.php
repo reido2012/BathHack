@@ -26,8 +26,6 @@
 
     try {
 
-
-
             if(isset($_POST['submit'])){
 
                 $name = $_FILES['fileToUpload']['name'];
