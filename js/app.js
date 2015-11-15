@@ -132,13 +132,13 @@ function loadReportPoints(){
 				var category = reports[i]['ReportCategory'];
 				var currenttime = reports[i]['CurrentTime'];
                 
-                var timeDifference = getTimeDifferenceString(time, currenttime);
+                var timeDifferenceTable = getTimeDifferenceTable(time, currenttime);
                 
 				var report = {
                     title: "Panic! Report",
                     latitude: latitude,
                     longitude: longitude,
-                    time: timeDifference,
+                    time: timeDifferenceTable,
                     distance: distance,
                     category: category,
                     currenttime: currenttime
@@ -155,6 +155,28 @@ function loadReportPoints(){
 
 		}           
 	});
+
+}
+
+function getTimeDifferenceTable(time, now){
+
+    var time = new Date(time).getTime();  
+    var now = new Date(now).getTime();
+
+    if(isNaN(time)) return "";
+
+    var differenceMs = now - time;
+   
+    var days = Math.floor(differenceMs / 1000 / 60 / (60 * 24));
+    var difference = new Date(differenceMs);
+
+    var string = "";
+
+    if(days > 0) string += days + " days ";
+    if(difference.getHours() > 0) string += difference.getHours() + " hours ";
+    if(difference.getMinutes() > 0) string += difference.getMinutes() + " mins ";
+
+    return string += " ago";
 
 }
 
