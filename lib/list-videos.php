@@ -9,7 +9,5 @@
 
 	$query = $db->query("SELECT videoURL FROM video WHERE reportID='$report'");
 	foreach($query as $row) {
-		array_push($video, $row);
+		die($row['videoURL']);
 	}
-
-	echo json_encode($video);

@@ -125,6 +125,7 @@ function loadReportPoints(){
 
 			for(var i=0; i<reports.length; i++){
 
+				var reportid = reports[i]['ReportID'];
 				var latitude = reports[i]['LocationLatitude'];
 				var longitude = reports[i]['LocationLongitude'];
 				var time = reports[i]['Time'];
@@ -142,7 +143,7 @@ function loadReportPoints(){
                 
                 console.log(time + " - " + currenttime + " - " + getTimeDifferenceString(time, currenttime));
 
-				$("#reports-list-body").append('<tr><td>' + category + '</td><td>' + getTimeDifferenceString(time, currenttime) + '</td><td>' + (Math.round(distance*100)/100) + 'm</td></tr>');
+				$("#reports-list-body").append('<tr><td><a data-toggle="modal" data-target="#videos-modal" onclick="getVideo("' + reportid + '"");">' + category + '</a></td><td>' + getTimeDifferenceString(time, currenttime) + '</td><td>' + (Math.round(distance*100)/100) + 'm</td></tr>');
 
 				createWarning(new google.maps.LatLng(latitude, longitude), report);
 
@@ -176,6 +177,19 @@ function getTimeDifferenceTable(time, now){
 
 }
 
+function getVideo(reportID){
+
+	$.ajax({
+		url: "lib/list-videos.php", 
+		type: "POST",      
+		data: "reportid=" + reportID,     
+		cache: false,
+		success: function(url){                          
+			$("#video-url").attr("src", url);               
+		}           
+	});       
+
+}
 
 function getTimeDifferenceString(time, now){
 
