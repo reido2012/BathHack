@@ -136,7 +136,7 @@ function loadReportPoints(){
 				var distance = reports[i]['Distance'];
 				var category = reports[i]['ReportCategory'];
 				var currenttime = reports[i]['CurrentTime'];
-				var videourl = reports[i]['VideoURL'];
+				
 
                 var timeDifferenceTable = getTimeDifferenceTable(time, currenttime);
                 
@@ -147,7 +147,7 @@ function loadReportPoints(){
                     };
                
 
-				$("#reports-list-body").append('<tr><td><a data-toggle="modal" data-target="#videos-modal" onclick="getVideo(\'' + videourl + '\');">' + category + '</a></td><td>' + getTimeDifferenceString(time, currenttime) + '</td><td>' + (Math.round(distance*100)/100) + 'm</td></tr>');
+				$("#reports-list-body").append('<tr><td><a data-toggle="modal" data-target="#videos-modal" onclick="getVideo(\'' + reportid + '\');">' + category + '</a></td><td>' + getTimeDifferenceString(time, currenttime) + '</td><td>' + (Math.round(distance*100)/100) + 'm</td></tr>');
 
 				createWarning(new google.maps.LatLng(latitude, longitude), report);
 
@@ -181,15 +181,27 @@ function getTimeDifferenceTable(time, now){
 
 }
 
-function getVideo(videourl){
+function getVideo(reportid){
 
-	if(videourl != "null"){              
-		$("#video-url").attr("src", url);
-		$("#video-url").parent().show();
-	}else{
-		$("#video-url").attr("src", "");
-		$("#video-url").parent().hide();
-	}           
+	$.ajax({
+		url: "lib/video-url.php", 
+		type: "POST",      
+		data: "ReportID=" + reportid,     
+		cache: false,
+		success: function(videourl){   
+
+			console.log("reportid=" + reportid + "&url=" + videourl);                       
+			
+			if(videourl != ""){              
+				$("#video-url").attr("src", videourl);
+				$("#video-url").parent().show();
+			}else{
+				$("#video-url").attr("src", "");
+				$("#video-url").parent().hide();
+			}    
+
+		}           
+	});            
 	          
 
 }
