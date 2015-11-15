@@ -60,3 +60,5 @@ echo var_dump($_POST);
         {
         echo "Connection failed: " . $e->getMessage();
         }
+
+echo "<script>window.location='index.php'</script>";
