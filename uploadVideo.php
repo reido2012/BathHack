@@ -1,6 +1,6 @@
 <?php
 
-    require 'database.php';
+    require 'lib/database.php';
 
     $tablename = "videos";
     
