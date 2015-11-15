@@ -135,7 +135,7 @@ function loadReportPoints(){
                 var timeDifferenceTable = getTimeDifferenceTable(time, currenttime);
                 
 				var report = {
-                    title: "Panic! Report",
+                    title: "Panic! - " + category,
                     latitude: latitude,
                     longitude: longitude,
                     time: timeDifferenceTable,

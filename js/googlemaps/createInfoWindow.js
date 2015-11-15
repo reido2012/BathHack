@@ -6,7 +6,6 @@ function createInfoWindow(report, marker){
     var tableEnd = "</tbody></table>";
     
     var title = "<tr><td colspan='2'>" + report.title + "</td></tr>";
-    var category = "<tr><td>Category:</td><td>" + report.category + "</td></tr>";
     var time = "<tr><td>Time:</td><td>" + report.time + "</td></tr>";
     var distance = "<tr><td>Distance:</td><td>" + report.distance + "</td></tr>";
     
@@ -16,7 +15,7 @@ function createInfoWindow(report, marker){
         infoWindowContent = tableStart + tableHeadStart + title + tableHeadEnd + tableEnd;
     }
     else {
-        infoWindowContent = tableStart + tableHeadStart + title + tableHeadEnd + category + time + distance + tableEnd;
+        infoWindowContent = tableStart + tableHeadStart + title + tableHeadEnd + time + distance + tableEnd;
     }
     
     marker.addListener('click', function() {
