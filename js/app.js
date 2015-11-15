@@ -125,6 +125,7 @@ function loadReportPoints(){
 		
 			var reports = JSON.parse(rawdata);
     	
+    		console.log(reports);
 
 			for(var i=0; i<reports.length; i++){
 
@@ -136,7 +137,7 @@ function loadReportPoints(){
 				var category = reports[i]['ReportCategory'];
 				var currenttime = reports[i]['CurrentTime'];
 				var videourl = reports[i]['VideoURL'];
-                
+
                 var timeDifferenceTable = getTimeDifferenceTable(time, currenttime);
                 
 				var report = {
@@ -146,7 +147,7 @@ function loadReportPoints(){
                     };
                
 
-				$("#reports-list-body").append('<tr><td><a data-toggle="modal" data-target="#videos-modal" onclick="getVideo("' + videourl + '"");">' + category + '</a></td><td>' + getTimeDifferenceString(time, currenttime) + '</td><td>' + (Math.round(distance*100)/100) + 'm</td></tr>');
+				$("#reports-list-body").append('<tr><td><a data-toggle="modal" data-target="#videos-modal" onclick="getVideo(\'' + videourl + '\');">' + category + '</a></td><td>' + getTimeDifferenceString(time, currenttime) + '</td><td>' + (Math.round(distance*100)/100) + 'm</td></tr>');
 
 				createWarning(new google.maps.LatLng(latitude, longitude), report);
 
