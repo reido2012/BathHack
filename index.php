@@ -327,16 +327,12 @@ $fb = new Facebook\Facebook([
 
 					<div class="modal-header">
 						<button type="button" class="close" data-dismiss="modal">&times;</button>
-						<h4 class="modal-title">Report Videos</h4>
+						<h4 class="modal-title">Uploaded Video</h4>
 					</div>
 
-					<div class="modal-body">
+					<div id="video-container" class="modal-body">
 
-						<video width="100%" height="100%" controls>
-						  	<source id="video-url" src="" />
-							Upgrade your web browser.
-						</video>
-
+						
 					</div>
 
 					<div class="modal-footer">

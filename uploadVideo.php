@@ -57,10 +57,9 @@
                 move_uploaded_file($temp, __DIR__."/uploaded/".$name);
                 $url = "uploaded/$name";
 
-                $query = $db->prepare("INSERT INTO videos (videoURL, videoName, reportID) VALUES (:url, :name, :reportID)");
+                $query = $db->prepare("UPDATE Report SET VideoURL=:url WHERE ReportID=:reportID");
                 $query->execute(array(
                     ":url" => $url,
-                    ":name" => $name,
                     ":reportID" => $reportID
                 ));
 

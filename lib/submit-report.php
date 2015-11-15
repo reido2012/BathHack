@@ -5,7 +5,7 @@
 	require 'email-send.php';
 
 
-	$radius = 1;
+	$radius = 1000;
 
 	
 	$query = $db->prepare("INSERT INTO Report (LocationLatitude, LocationLongitude, ReportCategory) VALUES (:latitude, :longitude, :category)");
@@ -18,7 +18,7 @@
 	echo $db->lastInsertId();
 
 	$query = $db->query("SELECT Email, LocationLatitude, LocationLongitude FROM Subscriber");
-	foreach($query as $row) {
+	foreach($query as $row){
 		
 		$distance = haversineDistance($_POST['lat'], $row['LocationLatitude'], $_POST['lon'], $row['LocationLongitude']);
 		if($distance <= $radius){
