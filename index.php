@@ -52,27 +52,6 @@ $fb = new Facebook\Facebook([
 	</head>
 	
 	<body onload="toggleSubscribeButton(); loadReportForm();">
-        
-<script>
-  window.fbAsyncInit = function() {
-    FB.init({
-        appId      : '904162293013934',
-        xfbml      : true,
-        version    : 'v2.5',
-        cookie:true
-    });
-  };
-
-  (function(d, s, id){
-     var js, fjs = d.getElementsByTagName(s)[0];
-     if (d.getElementById(id)) {return;}
-     js = d.createElement(s); js.id = id;
-     js.src = "//connect.facebook.net/en_US/sdk.js";
-     fjs.parentNode.insertBefore(js, fjs);
-   }(document, 'script', 'facebook-jssdk'));
-</script>
-        
-<div id="status"></div>
 	
 		<div class="navbar">
 			<div class="container-fluid">
@@ -94,23 +73,46 @@ $fb = new Facebook\Facebook([
 		
 		<div class="container-fluid">
 			
-            <!-- MAIN LIVE AREA 
-                    MAIN LIVE AREA ************************************************
-                        MAIN LIVE AREA -->
+            <!-- MAP AREA
+***********************************************************************
+            -->
             
 			<section id='display-area' class="jumbotron">
                 <div id='notification-area'></div>
 				<div id='map-here' style="height:300px;"></div>
 			</section>
+            
+<!--*******************************************************************-->
 
 			<section class="row">
 
 				<article class="col-sm-6">
-					<div id="panicArea">
-					   <button type="button" id="panicButton" data-toggle="modal" data-target="#report-modal">PANIC!</button>
+				    <div id="panicArea">
+				        <button
+                            type="button"
+                            id="panicButton"
+                            data-toggle="modal"
+                            data-target="#report-modal"
+                            >PANIC!
+                        </button>
                     </div>
-					<button id="subscribe-btn" type="button" class="btn btn-primary btn-lg btn-block" data-toggle="modal" data-target="#subscribe-modal">Subscribe to Alerts</button>
-					<button id="unsubscribe-btn" type="button" class="btn btn-primary btn-lg btn-block" data-toggle="modal" data-target="#unsubscribe-modal" onclick="unsubscribe();">Unsubscribe from Alerts</button>
+					<button
+                        id="subscribe-btn"
+                        type="button"
+                        class="btn btn-primary btn-lg btn-block"
+                        data-toggle="modal"
+                        data-target="#subscribe-modal"
+                        >Subscribe to Alerts
+                    </button>
+					<button
+                        id="unsubscribe-btn"
+                        type="button"
+                        class="btn btn-primary btn-lg btn-block"
+                        data-toggle="modal"
+                        data-target="#unsubscribe-modal"
+                        onclick="unsubscribe();"
+                        >Unsubscribe from Alerts
+                    </button>
 
 				</article>
 
@@ -137,6 +139,59 @@ $fb = new Facebook\Facebook([
 			</section>
 
 		</div>
+        
+        <script type="text/javascript">
+            
+////////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////         MAIN JS        //////////////////////////////////////
+            
+            window.fbAsyncInit = function() {
+                FB.init({
+                    appId      : '904162293013934',
+                    xfbml      : true,
+                    version    : 'v2.5',
+                    cookie:true
+                });
+            };
+
+            (function(d, s, id){
+                var js, fjs = d.getElementsByTagName(s)[0];
+                if (d.getElementById(id)) {return;}
+                js = d.createElement(s); js.id = id;
+                js.src = "//connect.facebook.net/en_US/sdk.js";
+                fjs.parentNode.insertBefore(js, fjs);
+            }(document, 'script', 'facebook-jssdk'));
+            
+            var mapBox = document.getElementById('map-here');
+            var defaltLATLNG = new google.maps.LatLng(51.5072, 0.1275);
+            
+            var infoWindow = new google.maps.InfoWindow({
+                content: ""
+            });
+            
+            var MapOptions = {
+                center: defaltLATLNG,
+                zoom: 7
+            };
+            
+            var map = new google.maps.Map(mapBox, MapOptions);
+            
+            var notificationDisplay = document.getElementById('notification-area');
+            
+            // default London
+            var clientLocation = {
+                Latitude: 51.5072,
+                Longitude: 0.1275
+            };
+            //google.maps.event.addDomListener(window, 'load', initializeMap);
+            
+            getLocation();
+            
+            
+////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////
+            
+        </script>
 
 		<div id="report-modal" class="modal fade">
 			<div class="modal-dialog">
@@ -178,7 +233,7 @@ $fb = new Facebook\Facebook([
 
 						<a href="tel:999" class="btn btn-primary btn-md">Call Emergency Services</a>
 
-						<form action = "uploadVideo.php" method = "POST" enctype = "multipart/form-data" >
+						<form action = "lib/uploadVideo.php" method = "POST" enctype = "multipart/form-data" >
 							<input id="currentReportId" type="hidden" name="reportID" />
 							<input type = "file" name = "fileToUpload" id = "fileToUpload">
 							<input type = "submit" name = "submit" value = "Upload"/>
@@ -193,37 +248,6 @@ $fb = new Facebook\Facebook([
 				</div>
 			</div>
 		</div>
-        
-        <script type="text/javascript">
-////////////////////////////////////////////////////////////////////////////////////////////////////
-////////////////////////////////////////////////////////////////////////////////////////////////////
-            
-            var mapBox = document.getElementById('map-here');
-            var defaltLATLNG = new google.maps.LatLng(51.5072, 0.1275);
-            
-            var infoWindow = new google.maps.InfoWindow({
-                content: ""
-            });
-            
-            var MapOptions = {
-                center: defaltLATLNG,
-                zoom: 7
-            };
-            
-            var map = new google.maps.Map(mapBox, MapOptions);
-            
-            var notificationDisplay = document.getElementById('notification-area');
-            
-            // default London
-            var clientLocation = {
-                Latitude: 51.5072,
-                Longitude: 0.1275
-            };
-            //google.maps.event.addDomListener(window, 'load', initializeMap);
-            
-            getLocation();
-            
-        </script>
 
 
 		<div id="subscribe-modal" class="modal fade">

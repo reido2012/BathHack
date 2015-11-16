@@ -1,7 +1,7 @@
 <!doctype html>
 <head>
-    <title>Stuff</title>
-    <link type="text/css" rel="stylesheet" href="styles.css">
+    <title>Uploading</title>
+    <link type="text/css" rel="stylesheet" href="../css/loadingScreen.css">
 </head>
 <html>
 	<body>
@@ -20,7 +20,7 @@
     </script>
 
 <?php
-    require 'lib/database.php';
+    require 'database.php';
 
     $tablename = "videos";
 
@@ -54,7 +54,7 @@
                 }
 
 
-                move_uploaded_file($temp, __DIR__."/uploaded/".$name);
+                move_uploaded_file($temp, __DIR__."/../uploaded/".$name);
                 $url = "uploaded/$name";
 
                 $query = $db->prepare("UPDATE Report SET VideoURL=:url WHERE ReportID=:reportID");
@@ -70,12 +70,15 @@
                 echo "<br />Please upload a file<br/>";
             }
         }
-        catch(PDOException $e)
-        {
-        echo "Connection failed: " . $e->getMessage();
+        catch(PDOException $e) {
+            echo "Connection failed: " . $e->getMessage();
         }
+        catch(Warning $warn) {
+            echo $warn->getMessage();
+        }
+            
 ?>
 
-<script>window.location='index.php'</script>
+<script>window.location='../index.php'</script>
     
 </html>
