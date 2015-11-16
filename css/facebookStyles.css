@@ -1,0 +1,6 @@
+#like-button-box {
+    display: table;
+    position: relative;
+    bottom: 20px;
+    left: 25px;
+}

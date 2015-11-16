@@ -27,7 +27,6 @@ $fb = new Facebook\Facebook([
 		<link rel="stylesheet" href="css/styles.less.css" />
         <link rel="stylesheet" href="css/notification.css"/>
         <link rel="stylesheet" href="css/panic.css"/>
-        <link rel="stylesheet" href="css/infoWindow.css">
 		
 		<script src="js/jquery/jquery-2.1.3.min.js"></script>
 		<script src="js/bootstrap/bootstrap.min.js"></script>
@@ -43,11 +42,15 @@ $fb = new Facebook\Facebook([
         <script src="js/googlemaps/createWarning.js"></script>
         <script src="js/googlemaps/getIcon.js"></script>
         <script src="js/googlemaps/createInfoWindow.js"></script>
+        <link rel="stylesheet" href="css/infoWindow.css">
         
         <!-- Notifications -->
         <script src="js/notifications/loadNotification.js"></script>
         <script src="js/notifications/createNotification.js"></script>
         <script src="js/notifications/terminateNotification.js"></script>
+        
+        <!-- Facebook -->
+        <link rel="stylesheet" href="css/facebookStyles.css">
 
 	</head>
 	

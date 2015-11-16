@@ -11,10 +11,3 @@
     color: darkred;
     font-weight: bold;
 }
-
-#like-button-box {
-    display: table;
-    position: relative;
-    bottom: 20px;
-    left: 25px;
-}
