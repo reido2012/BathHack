@@ -1,6 +1,6 @@
 <?php
 
-    $servername = "bathhack.cloudcell.co.uk";
+    $servername = "localhost";
 	$username = "bathhackapp";
 	$password = "fe2184fe2184";
 	$dbName = "panic-button";
